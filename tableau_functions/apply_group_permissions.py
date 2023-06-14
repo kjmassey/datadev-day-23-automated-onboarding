@@ -81,7 +81,7 @@ def apply_group_permissions_by_type(proj_name, group_name, group_type) -> dict:
     with server.auth.sign_in(tab_auth):
         projs = server.projects.filter(name=proj_name)
 
-        if len(projs) < 1:
+        if len([proj for proj in projs]) < 1:
             return "Project not found!"
 
         proj = projs[0]
@@ -92,7 +92,7 @@ def apply_group_permissions_by_type(proj_name, group_name, group_type) -> dict:
 
         groups = server.groups.filter(name=group_name)
 
-        if len(groups) < 1:
+        if len([group for group in groups]) < 1:
             return "Group not found!"
 
         group = groups[0]

@@ -13,14 +13,14 @@ def add_user_to_server_group(group_name, user_name) -> dict:
     with server.auth.sign_in(tab_auth):
         groups = server.groups.filter(name=group_name)
 
-        if len(groups) < 1:
+        if len([group for group in groups]) < 1:
             return "Group not found!"
 
         group = groups[0]
 
         users = server.users.filter(name=user_name)
 
-        if len(users) < 1:
+        if len([user for user in users]) < 1:
             return "User not found"
 
         user = users[0]

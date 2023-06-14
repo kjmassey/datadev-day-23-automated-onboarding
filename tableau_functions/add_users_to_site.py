@@ -16,7 +16,7 @@ def add_users_to_site(user_list) -> list:
         for user in user_list:
             existing_users = server.users.filter(name=user)
 
-            if len(existing_users) > 0:
+            if len([user for user in existing_users]) > 0:
                 users_added.append(existing_users[0].__dict__)
 
             else:
